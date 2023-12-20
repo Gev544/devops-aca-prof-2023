@@ -1,12 +1,27 @@
-FROM ubuntu:latest
+# Use a base image with Python
+FROM python:3.8
 
-RUN apt-get update && \
-    apt-get install pithon3 python3-pip -y
+ENV DEBIAN_FRONTEND noninteractive
 
-WORCKDIR /app
 
-COPY ./backend .
+# Set the working directory
+WORKDIR /app
 
-RUN pip3 install Flask
+# Copy the application files to the container
+COPY . /app
 
-CMD["python3", "app.py"]
+# Install Flask and any other dependencies
+RUN pip install Flask
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Command to run the application
+CMD ["python", "app.py"]
+
+
+
+
+
+
+
