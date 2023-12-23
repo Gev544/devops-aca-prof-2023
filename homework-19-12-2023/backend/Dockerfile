@@ -1,27 +1,7 @@
-# Use a base image with Python
-FROM python:3.8
-
-ENV DEBIAN_FRONTEND noninteractive
-
-
-# Set the working directory
+FROM python:3.9-slim-buster
 WORKDIR /app
-
-# Copy the application files to the container
-COPY . /app
-
-# Install Flask and any other dependencies
-RUN pip install Flask
-
-# Expose the port the app runs on
+COPY ./requirements.txt /app
+RUN pip install -r requirements.txt
+COPY . .
 EXPOSE 8000
-
-# Command to run the application
-CMD ["python", "app.py"]
-
-
-
-
-
-
-
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8000"]

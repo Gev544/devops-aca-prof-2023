@@ -18,6 +18,8 @@ services:
       - postgres
     environment:
       - DATABASE_URL=postgres://username:password@postgres:5432/dbname
+    ports:
+      - 8000:8000
 
   postgres:
     build:
