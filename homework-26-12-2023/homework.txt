@@ -1,0 +1,11 @@
+write a bash script
+
+1. script should be used as a error handling tool with functions in it to be sourced from other scripts
+2. script should contain error handling functions for aws-cli commands
+3. script should get aws command as an argument
+
+f.e. source aws_tools.sh
+     aws_command="aws ec2 create instance"
+     instance_id=$(aws_tools_run aws_command)
+
+hint: use "eval" command
