@@ -1,0 +1,14 @@
+# Dockerfile.nginx
+FROM ubuntu:latest
+
+# Install Nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Copy Nginx configuration
+COPY nginx.conf /etc/nginx/sites-available/default
+
+# Expose ports
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,11 @@
+# Dockerfile.postgresql
+FROM ubuntu:latest
+
+# Install PostgreSQL
+RUN apt-get update && apt-get install -y postgresql
+
+# Expose PostgreSQL port
+EXPOSE 5432
+
+# Start PostgreSQL
+CMD ["postgres"]
