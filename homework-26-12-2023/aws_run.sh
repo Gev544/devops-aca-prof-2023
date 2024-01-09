@@ -2,6 +2,9 @@
 
 source debug.sh
 
-command="aws ec2 describe-instances"
+#command="aws ec2 describe-instances"
 
-aws_run "$command"
+aws_caller "aws ec2 describe-vpcs --query 'Vpcs[].VpcId' --output text"
+
+vpc_id=$output
+echo $vpc_id
