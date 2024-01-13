@@ -1,0 +1,4 @@
+
+1. write terraform file to create Vpc with ec2 in it, ec2 should have access to teh internet.
+
+2. *write the terraform code with remote backend
