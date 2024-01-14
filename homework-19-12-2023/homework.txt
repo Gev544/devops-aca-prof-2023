@@ -1,8 +1,0 @@
-1. finish classwork - https://devopsprofoctober.slack.com/archives/C05UAPZ6W7K/p1702712288217599
-
-2. create own docker-compose project with:
-  2.1 nginx container which will proxy pass from 80 port to backend:8000
-  2.2 create flask backend app which will run simple app.py on 8000 port
-  2.3 create postgresql which will be dependency for both 2.1 2.2 services
-
-3. use own images cloned from ubuntu:latest image (ubuntu for all 3 images)
