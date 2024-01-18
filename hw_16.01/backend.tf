@@ -1,4 +1,4 @@
-ckend.tf
+# backend.tf
 provider "aws" {
   region = "us-east-1"
 }
