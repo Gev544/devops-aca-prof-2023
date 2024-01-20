@@ -9,7 +9,7 @@ resource "aws_vpc" "custom_vpc" {
 resource "aws_subnet" "public_subnet" {
   vpc_id            = aws_vpc.custom_vpc.id
   cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "${var.provider_region}a"
 
   tags = {
     Name = "Some Public Subnet"
@@ -19,8 +19,9 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.custom_vpc.id
   cidr_block        = "10.0.2.0/24"
-  availability_zone = "us-east-1a"
-  
+  availability_zone = "${var.provider_region}a"
+
+
 
   tags = {
     Name = "Private Subnet for us-east-1"
@@ -73,6 +74,12 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
