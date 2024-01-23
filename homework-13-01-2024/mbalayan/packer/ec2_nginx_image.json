@@ -30,8 +30,8 @@
     ],
     "provisioners" : [
         {
-            "type" : "shell",
-            "script" : "install_nginx.sh"
+            "type" : "ansible",
+            "playbook_file": "../ansible/nginx.yaml"
         }
     ]
 }
